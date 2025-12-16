@@ -1,0 +1,5 @@
+_pycache_
+airflow 
+dags/__pycache__
+env 
+.env
