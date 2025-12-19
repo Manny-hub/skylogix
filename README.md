@@ -15,7 +15,10 @@ This project demonstrates real-world data engineering concepts including API ing
 * Schedule and orchestrate the pipeline using Airflow
 * Enable downstream analytics and integration with logistics data
 
+
+
 ---
+<img width="10058" height="1545" alt="OpenWeather ETL Pipeline-2025-12-16-212909" src="https://github.com/user-attachments/assets/c4d45ccc-c023-4323-898d-c7e761533118" />
 
 ## 🏗️ Architecture Overview
 
