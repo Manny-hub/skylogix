@@ -60,15 +60,11 @@ skylogix/
 ├── dags/
 │   ├── weather_etl.py          # Airflow DAG
 │   └── utils.py                # Task callables
-│
-├── skylogix/
 │   ├── extract_staging.py      # API → MongoDB ingestion
 │   ├── stage_transform.py      # MongoDB → normalized dataset
 │   ├── load.py                 # Load into PostgreSQL
 │   └── __init__.py
 │
-├── sql/
-│   └── weather_readings.sql    # PostgreSQL DDL
 │
 ├── .env.example
 ├── requirements.txt
