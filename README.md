@@ -16,9 +16,8 @@ This project demonstrates real-world data engineering concepts including API ing
 * Enable downstream analytics and integration with logistics data
 
 
-
+![alt text](<OpenWeather ETL Pipeline.png>)
 ---
-<img width="10058" height="1545" alt="OpenWeather ETL Pipeline-2025-12-16-212909" src="https://github.com/user-attachments/assets/c4d45ccc-c023-4323-898d-c7e761533118" />
 
 ## 🏗️ Architecture Overview
 
@@ -60,15 +59,14 @@ skylogix/
 ├── dags/
 │   ├── weather_etl.py          # Airflow DAG
 │   └── utils.py                # Task callables
-│   ├── extract_staging.py      # API → MongoDB ingestion
-│   ├── stage_transform.py      # MongoDB → normalized dataset
-│   ├── load.py                 # Load into PostgreSQL
-│   └── __init__.py
 │
-│
+├── extract_staging.py      # API → MongoDB ingestion
+├── stage_transform.py      # MongoDB → normalized dataset
+├── load.py                 # Load into PostgreSQL
 ├── .env.example
 ├── requirements.txt
 └── README.md
+
 ```
 
 ---
