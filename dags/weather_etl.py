@@ -1,25 +1,27 @@
 from airflow import DAG
-from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
+from airflow.providers.standard.operators.python import PythonOperator
+from airflow.utils.timezone import datetime
 
 from utils import ingest_weather_data, transform, load
+
+
+def debug_env():
+    import os 
+    print(f"Postgres string: {os.getenv("POSTGRES_STRING")}")
 
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': datetime(2024, 1, 1),
-    'email_on_failure': False,
-    'email_on_retry': False,
-    'retries': 1,
-    'retry_delay': timedelta(hours=2),
+    'start_date': datetime(2024, 1, 1,),
 }
 
 with DAG(
-    dag_id='daily_weather_etl',
+    dag_id='weather_etl',
     default_args=default_args,
-    description='Daily ETL pipeline for weather data',
-    schedule='0 6 * * *',
+    description='Hourly ETL pipeline for weather data',
+    schedule='@hourly',
     catchup=False,
+    tags=['weather', 'etl'],
 ) as dag:
 
     extract_task = PythonOperator(
@@ -33,6 +35,11 @@ with DAG(
         python_callable=transform,
         do_xcom_push=True
     )
+    
+    debug_task = PythonOperator(
+        task_id='debug_env',
+        python_callable=debug_env,
+    )
 
     load_task = PythonOperator(
         task_id='load_weather_data',
@@ -42,4 +49,4 @@ with DAG(
         }
     )
 
-    extract_task >> transform_task >> load_task
+    extract_task >> transform_task >> debug_task >> load_task

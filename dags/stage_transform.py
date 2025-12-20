@@ -12,9 +12,9 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 
 def transform() -> str:
     # 1. Config
-    uri = os.getenv("MONGO_URI")
-    db_name = os.getenv("MONGO_DB")
-    coll_name = os.getenv("MONGO_COLLECTION")
+    uri ="mongodb://manny-hub:$hello_Yello@127.0.0.1:27017/weather_raw?authSource=admin"
+    db_name ="weather_raw"
+    coll_name = "weather_raw"
     output_path = "/tmp/weather_pipeline/weather_flattened.pkl"
 
     if not all([uri, db_name, coll_name]):
