@@ -1,11 +1,27 @@
-# Environment variables
-.env
-.venv
-# Airflow runtime
-airflow/airflow.db
-airflow/logs/
-airflow/simple_auth_manager_passwords.json.generated
-
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+
+# Airflow
+airflow/airflow.db
+airflow/logs/
+airflow/webserver_config.py
+airflow/simple_auth_manager_passwords.json.generated
+
+# Data artifacts
+*.pkl
+*.pickle
+*.csv
+
+# OS
+.DS_Store
