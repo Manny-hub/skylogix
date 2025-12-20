@@ -1,6 +1,6 @@
 # Environment variables
 .env
-
+.venv
 # Airflow runtime
 airflow/airflow.db
 airflow/logs/
