@@ -1,5 +1,11 @@
-_pycache_/
-airflow/
-dags/__pycache__
-env/
+# Environment variables
 .env
+
+# Airflow runtime
+airflow/airflow.db
+airflow/logs/
+airflow/simple_auth_manager_passwords.json.generated
+
+# Python
+__pycache__/
+*.pyc
